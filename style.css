@@ -1,0 +1,416 @@
+body {
+  background-image: url("/home/gendev/workspace/images/full-stack/projects/flexbox/company/Evac.-U.S.-Embassy-Saigon-1975.jpg");
+  height: 100%;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.main {
+  backdrop-filter: blur(4px);
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 10em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0);
+  z-index: 10;
+  font-family: Damion, cursive;
+  color: white;
+}
+
+.header h1 {
+  font-size: 3em;
+  padding: 1em 0 1em 0;
+  width: 80%;
+}
+
+.navbar {
+  display: flex;
+}
+
+.left-nav, .right-nav {
+  margin-right: 1rem;
+}
+
+.navbar a {
+  text-decoration: none;
+  font-size: 1.5em;
+  color: white;
+}
+
+.whoami {
+  display: flex;
+  padding: 2rem;
+  margin-top: 10rem;
+  justify-content: center;
+  opacity: 0.7;
+  background-color: white;
+}
+
+.whoami-content {
+  padding: 1rem;
+  width: 50%;
+  text-align: center;
+  border-radius: 1rem;
+  border: 2px solid black;
+}
+
+/*
+  EDUCATION
+*/
+
+.education-banner {
+  color: white;
+  font-size: 2em;
+  position: sticky;
+  top: 5em;
+  font-family: Kalam, cursive;
+  text-align: center;
+  background-color: black;
+  border: 1px solid black;
+}
+
+.education {
+  display: flex;
+  justify-content: space-between;
+  padding: 2em;
+}
+
+.education-stage {
+  color: white;
+  flex: 1;
+  padding: 2rem;
+  margin: 0px 1.25rem;
+  background-color: black;
+  border-radius: 1em;
+}
+
+.education-image {
+  width: 90%;
+  height: 65%;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.education-image img {
+  display: block;
+  max-width: 100%;
+}
+
+.education-label {
+  padding: 2.5rem 0;
+}
+
+.education h2, h3 {
+  padding-bottom: .5rem;
+  font-family: Kalam, cursive;
+}
+
+/* EMPLOYMENT */
+
+.employment-banner {
+  color: black;
+  font-size: 2em;
+  position: sticky;
+  top: 5em;
+  font-family: Merriweather, serif;
+  text-align: center;
+  background-color: white;
+  border: 1px solid white;
+}
+
+.employment {
+  padding: 2rem 1rem;
+}
+
+.employer {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding: 0 1rem;
+  margin: 2rem;
+  border: 2px solid white;
+  border-radius: 2rem;
+  background-color: white;
+}
+
+.employer-label {
+  border: 1px solid black;
+}
+
+.employer h3 {
+  text-align: left;
+  padding: 2rem 1rem 2rem 4rem;
+  font-size: 2rem;
+  font-family: Merriweather, serif;
+  border: 1px solid black;
+  border-radius: 2rem;
+}
+
+.job {
+  display: flex;
+  justify-content: space-between;
+  max-width: 100%;
+  padding: 0 1%;
+  margin: 1rem;
+  border: 1px solid black;
+  border-radius: 2rem;
+}
+
+.job h4 {
+  text-align: left;
+  font-size: 2rem;
+  padding-bottom: 0.5rem;
+  padding-left: 2rem;
+  font-family: Merriweather, serif;
+  width: 50%;
+}
+
+.job p {
+  font-size: 1.5rem;
+  padding-bottom: 0.5rem;
+  font-family: Merriweather, serif;
+  width: 50%;
+}
+
+.job {
+  border: 2px solid black;
+}
+
+/* INTERESTS */
+
+
+.interests-banner {
+  color: white;
+  font-size: 2em;
+  position: sticky;
+  top: 5em;
+  font-family: Inconsolata, monospace;
+  text-align: center;
+  background-color: black;
+  border: 1px solid black;
+}
+
+.interests {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.interest {
+  display: flex;
+  background-color: black;
+  color: white;
+  padding: 2rem 5rem;
+  margin: 2rem 0;
+  align-items: center;
+}
+
+.interest-label {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  padding: 1rem;
+}
+
+.interest-label h3 {
+  text-align: center;
+  color: white;
+  padding: 2rem;
+  font-size: 3rem;
+  font-family: Inconsolata, monospace;
+  border-radius: 2rem;
+  border: 2px solid white;
+}
+
+.interest-label p {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  font-family: Inconsolata, monospace;
+}
+
+.interest-image {
+  height: 65%;
+  margin: 0 auto;
+  overflow: hidden;
+  border: 2px solid black;
+  padding: 1rem;
+}
+
+.interest-image img {
+  display: block;
+  max-width: 100%;
+  border: 2px solid white;
+}
+
+.contact {
+  margin-top: 3em;
+  color: black;
+  font-size: 2em;
+  top: 2em;
+  text-align: center;
+  background-color: white;
+  border: 1px solid white;
+}
+
+.copyright {
+  margin-top: 2em;
+  margin-bottom: 3em;
+  color: black;
+  font-size: 2em;
+  top: 2em;
+  text-align: center;
+  background-color: white;
+  border: 1px solid white;
+}
+
+/* INFLUENCES */
+
+.influences-banner {
+  color: black;
+  font-size: 2em;
+  position: sticky;
+  top: 5em;
+  font-family: Montserrat, sans-serif;
+  text-align: center;
+  background-color: white;
+  border: 1px solid white;
+}
+
+.influences {
+  margin-top: 5rem;
+  display: flex;
+  justify-content: center;
+  padding: 2rem 1rem;
+}
+
+.influence {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  border: 2px solid white;
+  border-radius: 2rem;
+  background-image: url("/home/gendev/workspace/images/portfolio/influence0.jpg");
+  background-attachment: local;
+  background-size: cover;
+  height: 100%;
+  width: 80%;
+}
+
+.influence button {
+  height: 3rem;
+  width: 10rem;
+  margin: 1rem;
+}
+
+.influence-label {
+  border-radius: 2rem;
+  width: 50%;
+  padding: 3rem;
+  text-align: center;
+  background-color: white;
+}
+
+.influence-label h2, .influence-label h3, .influence-label p {
+  font-family: Montserrat, sans-serif;
+}
+
+.influence-label li {
+  list-style: none;
+  margin-left: -3rem;
+  font-family: Montserrat, sans-serif;
+}
+
+
+@media only screen and (max-width: 1000px) {
+  .header h1 {
+    margin-left: 1rem;
+  }
+
+  .education {
+    flex-flow: column;
+    padding: 0;
+  }
+
+  .education-stage {
+    margin: 1em 0;
+    padding: 1.25rem 1rem 0 1rem;
+    border-radius: 0;
+  }
+
+  .education-stage .content {
+    padding: 1.25rem 0 1.875rem 0;
+  }
+
+  .employer h3 {
+    text-align: center;
+    padding: 1rem;
+    font-size: 1.5rem;
+  }
+
+  .job {
+    flex-flow: column;
+  }
+
+  .job h4 {
+    text-align: center;
+    font-size: 1rem;
+    width: 100%;
+    padding-left: 0;
+  }
+
+  .job p {
+    font-size: 1rem;
+    width: 100%;
+  }
+
+  .interest {
+    flex-direction: column;
+  }
+
+  .interest-label {
+    width: 100%;
+  }
+  
+  .interest-label h3 {
+    padding: 1rem;
+    font-size: 2rem;
+    font-family: Inconsolata, monospace;
+    border: 1px solid black;
+    border-radius: 2rem;
+    border: 2px solid white;
+    width: 100%;
+  }
+
+  .interest-label p {
+    width: 100%;
+    padding: 1rem;
+  }
+
+  .interest-image {
+    max-width: 100%;
+  }
+
+  .interest-image img {
+    display: block;
+    max-width: 100%;
+    border: 2px solid white;
+  }
+
+  .influences {
+    margin-top: 3rem;
+  }
+
+  .influence {
+    flex-flow: column;
+    padding: 1rem;
+  }
+}
