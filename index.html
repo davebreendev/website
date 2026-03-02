@@ -16,21 +16,21 @@
     <h1>davebreendev</h1>
     <div class="navbar">
       <div class="left-nav">
-        <p><a href="index.html#whoami">Hello World</a></p>
-        <p><a href="index.html#education">Education</a></p>
-        <p><a href="index.html#employment">Employment</a></p>
+        <p><a href="#whoami">Hello World</a></p>
+        <p><a href="#education">Education</a></p>
+        <p><a href="#employment">Employment</a></p>
       </div>
       <div class="right-nav">
-        <p><a href="index.html#interests">Interests</a></p>
-        <p><a href="index.html#influences">Influences</a></p>
-        <p><a href="index.html#contact">Contact</a></p>
+        <p><a href="#interests">Interests</a></p>
+        <p><a href="#influences">Influences</a></p>
+        <p><a href="#contact">Contact</a></p>
       </div>
     </div>
   </div>
 
-  <div class="main" id="whoami">
+  <div class="main">
 
-    <div class="whoami">
+    <div class="whoami" id="whoami">
       <div class="whoami-content">
         <h2>Hello World&excl;</h2>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
@@ -193,6 +193,28 @@
 
     <div class="contact" id="contact">
       <h3>davebreendev@gmail.com</h3>
+      <form action="contact.html" method="POST">
+        <div class="name">
+          <label for="name">Name: </label>
+    			<input type="text" name="name" id="name">
+        </div>
+        <div class="subject">
+          <label for="subject">Subject: </label>
+    			<input type="text" name="subject" id="subject">
+        </div>
+        <div class="email">
+          <label for="email">email: </label>
+    			<input type="text" name="email" id="email">
+        </div>
+        <div class="message">
+          <label for="message" id="message-label">Message: </label>
+          <br>
+          <textarea id="message" name="message" rows="3" cols="40"></textarea>
+        </div>
+        <div class="submit">
+          <input type='submit' value='Submit'>
+        </div>
+      </form>
     </div>
 
     <div class="copyright">

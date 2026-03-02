@@ -1,12 +1,8 @@
 body {
-  background-image: url("/home/gendev/workspace/images/full-stack/projects/flexbox/company/Evac.-U.S.-Embassy-Saigon-1975.jpg");
+  background-image: url("/home/gendev/workspace/images/portfolio/background.jpg");;
   height: 100%;
   background-attachment: fixed;
   background-size: cover;
-}
-
-.main {
-  backdrop-filter: blur(4px);
 }
 
 .header {
@@ -14,19 +10,19 @@ body {
   top: 0;
   left: 0;
   width: 100%;
-  height: 10em;
+  height: 10rem;
   display: flex;
   align-items: center;
   justify-content: center;
   background: rgba(0, 0, 0);
-  z-index: 10;
+  z-index: 2;
   font-family: Damion, cursive;
   color: white;
 }
 
 .header h1 {
-  font-size: 3em;
-  padding: 1em 0 1em 0;
+  font-size: 3rem;
+  padding: 1rem 0 1rem 0;
   width: 80%;
 }
 
@@ -40,7 +36,7 @@ body {
 
 .navbar a {
   text-decoration: none;
-  font-size: 1.5em;
+  font-size: 1.5rem;
   color: white;
 }
 
@@ -67,9 +63,8 @@ body {
 
 .education-banner {
   color: white;
-  font-size: 2em;
-  position: sticky;
-  top: 5em;
+  font-size: 2rem;
+  top: 5rem;
   font-family: Kalam, cursive;
   text-align: center;
   background-color: black;
@@ -79,7 +74,7 @@ body {
 .education {
   display: flex;
   justify-content: space-between;
-  padding: 2em;
+  padding: 2rem;
 }
 
 .education-stage {
@@ -88,7 +83,7 @@ body {
   padding: 2rem;
   margin: 0px 1.25rem;
   background-color: black;
-  border-radius: 1em;
+  border-radius: 1rem;
 }
 
 .education-image {
@@ -108,7 +103,7 @@ body {
 }
 
 .education h2, h3 {
-  padding-bottom: .5rem;
+  padding-bottom: 0.5rem;
   font-family: Kalam, cursive;
 }
 
@@ -116,9 +111,8 @@ body {
 
 .employment-banner {
   color: black;
-  font-size: 2em;
-  position: sticky;
-  top: 5em;
+  font-size: 2rem;
+  top: 5rem;
   font-family: Merriweather, serif;
   text-align: center;
   background-color: white;
@@ -188,9 +182,8 @@ body {
 
 .interests-banner {
   color: white;
-  font-size: 2em;
-  position: sticky;
-  top: 5em;
+  font-size: 2rem;
+  top: 5rem;
   font-family: Inconsolata, monospace;
   text-align: center;
   background-color: black;
@@ -250,34 +243,12 @@ body {
   border: 2px solid white;
 }
 
-.contact {
-  margin-top: 3em;
-  color: black;
-  font-size: 2em;
-  top: 2em;
-  text-align: center;
-  background-color: white;
-  border: 1px solid white;
-}
-
-.copyright {
-  margin-top: 2em;
-  margin-bottom: 3em;
-  color: black;
-  font-size: 2em;
-  top: 2em;
-  text-align: center;
-  background-color: white;
-  border: 1px solid white;
-}
-
 /* INFLUENCES */
 
 .influences-banner {
   color: black;
-  font-size: 2em;
-  position: sticky;
-  top: 5em;
+  font-size: 2rem;
+  top: 5rem;
   font-family: Montserrat, sans-serif;
   text-align: center;
   background-color: white;
@@ -329,6 +300,56 @@ body {
   font-family: Montserrat, sans-serif;
 }
 
+.contact {
+  font-size: 2rem;
+  font-family: Damion, cursive;
+  margin-top: 3rem;
+  color: black;
+  text-align: center;
+  background-color: white;
+  border: 1px solid white;
+  border-radius: 2rem;
+  width: 75%;
+  margin-left: 12.5%;
+  padding-bottom: 2rem;
+}
+
+.name, .subject, .email, .submit {
+  margin: 1rem 0;
+}
+
+.copyright {
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+  color: black;
+  font-size: 2rem;
+  top: 2rem;
+  text-align: center;
+  background-color: white;
+  border: 1px solid white;
+}
+
+.contact-received {
+  font-family: Damion, cursive;
+  font-size: 2rem;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  margin: 20rem;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  border-radius: 2rem;
+}
+
+.return-home {
+  text-decoration: none;
+  border: 3px solid black;
+  padding: 2rem;
+  width: 25%;
+  text-align: center;
+  border-radius: 2rem;
+}
 
 @media only screen and (max-width: 1000px) {
   .header h1 {
@@ -412,5 +433,10 @@ body {
   .influence {
     flex-flow: column;
     padding: 1rem;
+  }
+
+  .contact {
+    width: 100%;
+    margin-left: 0;
   }
 }
