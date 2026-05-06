@@ -1,5 +1,5 @@
 body {
-  background-image: url("/home/gendev/workspace/images/portfolio/background.jpg");;
+  background-image: url("/home/gendev/workspace/images/portfolio/background.jpg");
   height: 100%;
   background-attachment: fixed;
   background-size: cover;
@@ -438,5 +438,16 @@ body {
   .contact {
     width: 100%;
     margin-left: 0;
+  }
+
+  .contact-received {
+    font-size: 1.5rem;
+    padding: 1rem;
+    margin: 20rem 5rem;
+    border-radius: 2rem;
+  }
+
+  .return-home {
+    width: 50%;
   }
 }
