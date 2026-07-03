@@ -1,0 +1,27 @@
+.contact {
+  font-size: 2rem;
+  font-family: Damion, cursive;
+  margin-top: 3rem;
+  color: black;
+  text-align: center;
+  background-color: white;
+  border: 1px solid white;
+  border-radius: 2rem;
+  width: 75%;
+  margin-left: 12.5%;
+  padding-bottom: 2rem;
+}
+
+.name,
+.subject,
+.email,
+.submit {
+  margin: 1rem 0;
+}
+
+@media only screen and (max-width: 1000px) {
+  .contact {
+    width: 100%;
+    margin-left: 0;
+  }
+}
