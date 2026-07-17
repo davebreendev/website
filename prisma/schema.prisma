@@ -1,0 +1,56 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../app/generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model education {
+  id         Int    @id @default(autoincrement())
+  name       String
+  attendance String
+  img        String
+}
+
+model employers {
+  id   Int    @id @default(autoincrement())
+  name String
+}
+
+model influences {
+  id      Int    @id @default(autoincrement())
+  name    String
+  subject String
+  img     String
+}
+
+model interests {
+  id      Int    @id @default(autoincrement())
+  name    String
+  subject String
+  img     String
+}
+
+model jobs {
+  id          Int    @id @default(autoincrement())
+  employer_id Int
+  role        String
+  term        String
+  description String
+}
+
+model resources {
+  id           Int    @id @default(autoincrement())
+  influence_id Int
+  name         String
+  url          String
+  details      String
+}
+
+model whoami {
+  id           Int    @id @default(autoincrement())
+  greeting     String
+  introduction String
+}

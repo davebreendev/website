@@ -1,0 +1,97 @@
+.interestsBanner {
+  color: white;
+  font-size: 2rem;
+  top: 5rem;
+  font-family: Inconsolata, monospace;
+  text-align: center;
+  background-color: black;
+  border: 1px solid black;
+}
+
+.interests {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.interest {
+  display: flex;
+  background-color: black;
+  color: white;
+  padding: 2rem 5rem;
+  margin: 2rem 0;
+  align-items: center;
+}
+
+.interestLabel {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  padding: 1rem;
+}
+
+.interestLabel h3 {
+  text-align: center;
+  color: white;
+  padding: 2rem;
+  font-size: 3rem;
+  font-family: Inconsolata, monospace;
+  border-radius: 2rem;
+  border: 2px solid white;
+}
+
+.interestLabel p {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  font-family: Inconsolata, monospace;
+}
+
+.interestImage {
+  height: 65%;
+  margin: 0 auto;
+  overflow: hidden;
+  border: 2px solid black;
+  padding: 1rem;
+}
+
+.interestImage img {
+  display: block;
+  max-width: 100%;
+  border: 2px solid white;
+}
+
+@media (max-width: 768px) {
+  .interest {
+    flex-direction: column;
+  }
+
+  .interestLabel {
+    width: 100%;
+  }
+
+  .interestLabel h3 {
+    padding: 1rem;
+    font-size: 2rem;
+    font-family: Inconsolata, monospace;
+    border: 1px solid black;
+    border-radius: 2rem;
+    border: 2px solid white;
+    width: 100%;
+  }
+
+  .interestLabel p {
+    width: 100%;
+    padding: 1rem;
+  }
+
+  .interestImage {
+    max-width: 100%;
+  }
+
+  .interestImage img {
+    display: block;
+    max-width: 100%;
+    border: 2px solid white;
+  }
+}
