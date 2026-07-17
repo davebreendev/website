@@ -1,4 +1,4 @@
-.influences-banner {
+.influencesBanner {
   color: black;
   font-size: 2rem;
   top: 5rem;
@@ -22,7 +22,6 @@
   padding: 2rem;
   border: 2px solid white;
   border-radius: 2rem;
-  background-image: url("/home/gendev/workspace/images/portfolio/influence0.jpg");
   background-attachment: local;
   background-size: cover;
   height: 100%;
@@ -35,7 +34,7 @@
   margin: 1rem;
 }
 
-.influence-label {
+.influenceLabel {
   border-radius: 2rem;
   width: 50%;
   padding: 3rem;
@@ -43,13 +42,13 @@
   background-color: white;
 }
 
-.influence-label h2,
-.influence-label h3,
-.influence-label p {
+.influenceLabel h2,
+.influenceLabel h3,
+.influenceLabel p {
   font-family: Montserrat, sans-serif;
 }
 
-.influence-label li {
+.influenceLabel li {
   list-style: none;
   margin-left: -3rem;
   font-family: Montserrat, sans-serif;

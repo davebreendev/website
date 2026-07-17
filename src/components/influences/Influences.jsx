@@ -1,94 +1,56 @@
-// import styles from './Influences.module.css';
+import styles from './Influences.module.css';
+import { useState } from "react";
 
-const influences = [`
-  <h2>Influence 1 H2</h2>
-  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-  <ul>
-    <li>Resource Item</li>
-    <li>Resource Item</li>
-    <li>Resource Item</li>
-    <li>Resource Item</li>
-    <li>Resource Item</li>
-  </ul>`,
-  `
-  <h2>Influence 2 H2</h2>
-  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-  <ul>
-    <li>Resource Item</li>
-    <li>Resource Item</li>
-    <li>Resource Item</li>
-    <li>Resource Item</li>
-    <li>Resource Item</li>
-  </ul>`,
-  `
-  <h2>Influence 3 H2</h2>
-  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-  <ul>
-    <li>Resource Item</li>
-    <li>Resource Item</li>
-    <li>Resource Item</li>
-    <li>Resource Item</li>
-    <li>Resource Item</li>
-  </ul>`,
-  `
-  <h2>Influence 4 H2</h2>
-  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-  <ul>
-    <li>Resource Item</li>
-    <li>Resource Item</li>
-    <li>Resource Item</li>
-    <li>Resource Item</li>
-    <li>Resource Item</li>
-  </ul>`,
-  `
-  <h2>Influence 5 H2</h2>
-  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-  <ul>
-    <li>Resource Item</li>
-    <li>Resource Item</li>
-    <li>Resource Item</li>
-    <li>Resource Item</li>
-    <li>Resource Item</li>
-  </ul>`
-]
+export default function Influences({ influences }) {
 
-let influence = document.getElementById('influence');
+  const [influenceIndex, setInfluenceIndex] = useState(0);
+  const [influence, setInfluence] = useState(influences[influenceIndex]);
 
-let influenceLabel = document.getElementById('influence-label');
-
-let previous = document.getElementById('previous');
-let next = document.getElementById('next');
-
-let influenceIndex = 0;
-console.log(`influenceIndex: ${influenceIndex}`);
-
-let loadPrevious = function () {
-  console.log(`influenceIndex: ${influenceIndex}`);
-  if (influenceIndex > 0) {
-    influenceIndex -= 1;
+  const loadPrev = () => {
+    if (influenceIndex > 0) {
+      setInfluenceIndex((influenceIndex) => influenceIndex - 1);
+      setInfluence(influences[influenceIndex - 1]);
+    }
   }
-  influenceLabel.innerHTML = influences[influenceIndex];
-  influence.style.backgroundImage = `url(../../assets/images/influence${influenceIndex}.jpg)`
-  next.disabled = false;
-  if (influenceIndex === 0) {
-    previous.disabled = true;
-  }
-  console.log(`influenceIndex: ${influenceIndex}`);
-};
 
-let loadNext = function () {
-  console.log(`influenceIndex: ${influenceIndex}`);
-  if (influenceIndex < influences.length - 1) {
-    influenceIndex += 1;
+  const loadNext = () => {
+    if (influenceIndex < influences.length - 1) {
+      setInfluenceIndex((influenceIndex) => influenceIndex + 1);
+      setInfluence(influences[influenceIndex + 1]);
+    }
   }
-  influenceLabel.innerHTML = influences[influenceIndex];
-  influence.style.backgroundImage = `url(../../assets/images/influence${influenceIndex}.jpg)`;
-  previous.disabled = false;
-  if (influenceIndex === influences.length - 1) {
-    next.disabled = true;
-  }
-  console.log(`influenceIndex: ${influenceIndex}`);
-};
-
-previous.addEventListener('click', loadPrevious);
-next.addEventListener('click', loadNext);
+  return (
+    <>
+      <div className={styles.influencesBanner} id="influences">
+        <h2>Influences</h2>
+      </div>
+      <div className={styles.influences}>
+        <div className={styles.influence} style={{ backgroundImage: `url(${influence.img})` }}>
+          {
+            influenceIndex === 0 ?
+              <button id="previous" onClick={loadPrev} disabled>PREVIOUS</button>
+              :
+              <button id="previous" onClick={loadPrev}>PREVIOUS</button>
+          }
+          <div className={styles.influenceLabel} id="influence-label">
+            <h2>{influence.name}</h2>
+            <p>{influence.subject}</p>
+            <ul>
+              {influence.resources.map((resource) => {
+                return (
+                  <li key={influence.resources.indexOf(resource)}>{resource.name}: {resource.url}: {resource.details}</li>
+                )
+              })}
+            </ul>
+          </div>
+          {
+            influenceIndex < influences.length ?
+              <button id="previous" onClick={loadNext}>NEXT</button>
+              :
+              <button id="next" onClick={loadNext} disabled>NEXT</button>
+          }
+        </div>
+      </div>
+    </>
+  )
+}

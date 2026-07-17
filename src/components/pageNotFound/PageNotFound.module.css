@@ -1,0 +1,9 @@
+.pageNotFound {
+  display: flex;
+  padding: 2rem;
+  margin-top: 10rem;
+  justify-content: center;
+  opacity: 0.7;
+  background-color: white;
+  font-family: Damion, cursive;
+}
