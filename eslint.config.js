@@ -26,4 +26,14 @@ export default defineConfig([
       'no-unused-vars': ['error', { varsIgnorePattern: '^[A-Z_]' }],
     },
   },
+  /*
+    @react-router/dev/routes
+    Allow loader, action etc. exports from routes
+  */
+  {
+    files: ["app/routes/**/*.{js,jsx,ts,tsx}", "app/layouts/**/*.{js,jsx,ts,tsx}"],
+    rules: {
+      "react-refresh/only-export-components": "off",
+    },
+  }
 ])
