@@ -30,7 +30,7 @@ export default function Contact() {
         <div className={styles.message}>
           <label htmlFor="message" id="message-label">Message: </label>
           <br />
-          <textarea className={styles.textarea} id="message" name="message" rows="3" cols="40"></textarea>
+          <textarea id="message" name="message" rows="3" cols="40"></textarea>
         </div>
         <div className={styles.submit}>
           <input type="submit" value="Submit" />

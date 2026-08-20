@@ -1,0 +1,43 @@
+.Whoami {
+  background-image: url("/images/alternate-background.jpg");
+  height: 100%;
+  background-attachment: fixed;
+  background-size: cover;
+  min-height: 100vh;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 5rem;
+  align-items: center;
+}
+
+.whoami {
+  margin-top: 10rem;
+  display: flex;
+  flex-direction: column;
+  font-family: Montserrat, sans-serif;
+  padding: 2rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.whoamiContent {
+  padding: 1rem;
+  width: 50%;
+  text-align: center;
+  border-radius: 1rem;
+  background: rgb(255, 255, 255, 0.7);
+  border: 2px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.returnHome {
+  composes: returnHome from '../../pages/root/Root.module.css';
+}
+
+.returnHomeLink {
+  composes: returnHomeLink from '../../pages/root/Root.module.css';
+}

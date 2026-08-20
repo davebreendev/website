@@ -4,7 +4,7 @@ import styles from './ContactSent.module.css';
 
 export default function ContactSent() {
   return (
-    <>
+    <div className={styles.ContactSent}>
       <div className={styles.contactReceived}>
         <p>
           Thank you for contacting davebreendev.
@@ -16,6 +16,6 @@ export default function ContactSent() {
           Back to Home
         </Link>
       </div>
-    </>
+    </div>
   );
 }

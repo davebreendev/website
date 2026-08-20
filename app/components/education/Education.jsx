@@ -1,3 +1,5 @@
+import { Link } from 'react-router';
+
 import { getCentralImageUrl } from '../../utils/imageResolver';
 
 import styles from './Education.module.css';
@@ -11,28 +13,26 @@ export default function Education({ education }) {
       <div className={styles.education}>
         {education.map((institution, index) => {
           return (
-            <div className={styles.educationStage} key={index} >
-              <div className={styles.educationImage}>
+            <div className={styles.institution} key={index}>
+              <div className={styles.institutionImage}>
                 <img
                   src={getCentralImageUrl(institution.img)} />
               </div>
-              <div className={styles.educationLabel}>
+              <div className={styles.institutionLabel}>
                 <h2>{institution.name}</h2>
                 <h3>{institution.attendance}</h3>
-              </div>
-              {
-                index === education.length - 1 && (
-                  <div className={styles.educationBanner}>
-                    <div className={styles.educationHomeLink} >
-                      <a href='/education'>Go to Education Home</a>
+                {
+                  index === education.length - 1 && (
+                    <div className={styles.siteLink} >
+                      <Link to='/education' className={styles.siteLinkRef}>Education Home</Link>
                     </div>
-                  </div>
-                )
-              }
+                  )
+                }
+              </div>
             </div>
           );
         })}
-      </div>
+      </div >
     </>
   )
 }

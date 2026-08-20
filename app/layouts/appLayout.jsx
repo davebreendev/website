@@ -8,7 +8,7 @@ import {
   getInfluencesData,
   getResourcesData,
   getInterestsData
-} from "../.server/website";
+} from "../.server/fetch-website";
 
 export async function loader() {
   const [whoami, education, employers, jobs, influences, resources, interests] = await Promise.all([

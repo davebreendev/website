@@ -1,0 +1,36 @@
+.banner {
+  font-size: 2rem;
+  top: 5rem;
+  text-align: center;
+  width: 90%;
+  border-radius: 1rem;
+}
+
+.siteLink {
+  margin-top: auto;
+  margin-bottom: 1rem;
+}
+
+.siteLinkRef {
+  font-weight: bold;
+  text-decoration: none;
+  background-color: rgb(223, 220, 183);
+  border-radius: 0.25rem;
+  padding: 0.5rem;
+  color: black;
+  font-size: 1rem;
+}
+
+.returnHome {
+  margin-top: 2rem;
+}
+
+.returnHomeLink {
+  padding: 0.75rem;
+  font-weight: bold;
+  text-decoration: none;
+  background-color: rgb(233, 230, 230);
+  border-radius: 0.25rem;
+  color: black;
+  font-size: 1rem;
+}
