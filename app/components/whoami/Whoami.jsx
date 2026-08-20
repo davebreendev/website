@@ -14,7 +14,7 @@ export default function Whoami({ whoami }) {
             return <p id={index} key={index}>{paragraph}</p>
           })}
           <div className={styles.siteLink} >
-            <Link to='/whoami' state={whoami} className={styles.siteLinkRef}>Whoami Home</Link>
+            <Link to='/whoami' className={styles.siteLinkRef}>Whoami Home</Link>
           </div>
         </div>
       </div>

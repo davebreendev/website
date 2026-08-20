@@ -64,8 +64,8 @@ export default function Influences({ influences, resources }) {
             </ul>
             {
               influenceIndex === influences.length - 1 && (
-                <div className={styles.siteLink}>
-                  <Link to='/influences' className={styles.siteLinkRef}>Influences Home</Link>
+                <div className={styles.homeLink}>
+                  <Link to='/influences' className={styles.homeLinkRef}>Influences Home</Link>
                 </div>
               )
             }
