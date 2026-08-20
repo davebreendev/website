@@ -1,0 +1,21 @@
+.modalBackground {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  background: rgba(255, 255, 255, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modalContent {
+  font-family: Kalam, cursive;
+  height: 75%;
+  width: 75%;
+  border: 1px solid black;
+  border-radius: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255);
+}

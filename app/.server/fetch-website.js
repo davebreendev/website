@@ -35,8 +35,7 @@ export async function getEducationData() {
     return education;
   }
   catch (error) {
-    console.log(`getEducationData: ERROR---`)
-    // Known Prisma Engine Errors (Database constraints, target not found, etc.)
+    console.log(`getEducationData: ERROR---`);
     if (error instanceof Prisma.PrismaClientKnownRequestError) {
       console.error(`Prisma Known Error [${error.code}]:`, error.message);
     }
@@ -49,8 +48,7 @@ export async function getEmployersData() {
     return employers;
   }
   catch (error) {
-    console.log(`getEmployersData: ERROR---`)
-    // Known Prisma Engine Errors (Database constraints, target not found, etc.)
+    console.log(`getEmployersData: ERROR---`);
     if (error instanceof Prisma.PrismaClientKnownRequestError) {
       console.error(`Prisma Known Error [${error.code}]:`, error.message);
     }
@@ -63,8 +61,7 @@ export async function getJobsData() {
     return jobs;
   }
   catch (error) {
-    console.log(`getJobsData: ERROR---`)
-    // Known Prisma Engine Errors (Database constraints, target not found, etc.)
+    console.log(`getJobsData: ERROR---`);
     if (error instanceof Prisma.PrismaClientKnownRequestError) {
       console.error(`Prisma Known Error [${error.code}]:`, error.message);
     }
@@ -77,8 +74,7 @@ export async function getInfluencesData() {
     return influences;
   }
   catch (error) {
-    console.log(`getInfluencesData: ERROR---`)
-    // Known Prisma Engine Errors (Database constraints, target not found, etc.)
+    console.log(`getInfluencesData: ERROR---`);
     if (error instanceof Prisma.PrismaClientKnownRequestError) {
       console.error(`Prisma Known Error [${error.code}]:`, error.message);
     }
@@ -91,8 +87,7 @@ export async function getResourcesData() {
     return resources;
   }
   catch (error) {
-    console.log(`getResourcesData: ERROR---`)
-    // Known Prisma Engine Errors (Database constraints, target not found, etc.)
+    console.log(`getResourcesData: ERROR---`);
     if (error instanceof Prisma.PrismaClientKnownRequestError) {
       console.error(`Prisma Known Error [${error.code}]:`, error.message);
     }
@@ -105,8 +100,7 @@ export async function getInterestsData() {
     return interests;
   }
   catch (error) {
-    console.log(`getInterestsData: ERROR---`)
-    // Known Prisma Engine Errors (Database constraints, target not found, etc.)
+    console.log(`getInterestsData: ERROR---`);
     if (error instanceof Prisma.PrismaClientKnownRequestError) {
       console.error(`Prisma Known Error [${error.code}]:`, error.message);
     }

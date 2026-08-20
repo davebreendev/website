@@ -51,6 +51,7 @@ notes
 /app/generated/prisma
 db
 *.db
+*.sql
 
 # React Router
 .react-router/

@@ -1,17 +1,21 @@
-import { useState } from "react";
+import { useState } from 'react';
 import { Link, useRouteLoaderData } from 'react-router';
 
+import { GalleryModal } from '../../components/portals/GalleryModal';
 import { getCentralImageUrl } from '../../utils/imageResolver';
 
 import styles from './EducationHome.module.css';
 
 export default function EducationHome() {
-  // const [imageHighlighted, setImageHighlighted] = useState(false);
+  const [openGallery, setOpenGallery] = useState(false);
+  // const [galleryTopic, setGalleryTopic] = useState("");
   const { education } = useRouteLoaderData("app-layout");
 
-  const seeMore = () => {
-    console.log(`Do something here...`);
+  const launchGallery = (topic) => {
+    setOpenGallery(true);
+    console.log(`Launching gallery for ${topic}`)
   }
+
   return (
     <div className={styles.Education}>
       <div className={styles.education}>
@@ -27,7 +31,7 @@ export default function EducationHome() {
                 <div className={styles.institutionImage} style={{ backgroundImage: `url(${getCentralImageUrl(institution.img)})` }}>
                   <button
                     id="previous"
-                    onClick={seeMore}
+                    onClick={() => launchGallery(institution.name)}
                     className={styles.seeMoreButton}
                   >
                     See More
@@ -44,15 +48,21 @@ export default function EducationHome() {
             </div>
           )
         })}
+        <div className={styles.returnHome} >
+          <Link
+            to='/'
+            className={styles.returnHomeLink}
+          >
+            Back to Home
+          </Link>
+        </div>
       </div>
-      <div className={styles.returnHome} >
-        <Link
-          to='/'
-          className={styles.returnHomeLink}
-        >
-          Back to Home
-        </Link>
-      </div>
+      <GalleryModal
+        openGallery={openGallery}
+        onClose={() => setOpenGallery(false)}
+        titleId={'Testing Modal'}
+        children={<h1>MODAL CONTENT</h1>}
+      />
     </div>
   );
 }
