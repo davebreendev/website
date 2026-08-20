@@ -1,15 +1,16 @@
 .employmentBanner {
-  composes: banner from '../../pages/root/Root.module.css';
   color: black;
-  background: rgb(255, 255, 255, 0.7);
+  font-size: 2rem;
+  top: 5rem;
+  font-family: Merriweather, serif;
+  text-align: center;
+  background-color: white;
   border: 1px solid white;
 }
 
 .employment {
   padding: 2rem 1rem;
   margin-bottom: 2rem;
-  width: 90%;
-  font-family: Merriweather, serif;
 }
 
 .employer {
@@ -19,8 +20,7 @@
   padding: 2rem 1rem;
   border: 2px solid white;
   border-radius: 2rem;
-  background: rgb(255, 255, 255, 0.7);
-  margin-bottom: 2rem;
+  background-color: white;
 }
 
 .employerLabel {
@@ -31,6 +31,7 @@
   text-align: left;
   padding: 2rem 1rem 2rem 4rem;
   font-size: 2rem;
+  font-family: Merriweather, serif;
   border: 1px solid black;
   border-radius: 2rem;
 }
@@ -50,12 +51,14 @@
   font-size: 2rem;
   padding-bottom: 0.5rem;
   padding-left: 2rem;
+  font-family: Merriweather, serif;
   width: 50%;
 }
 
 .job p {
   font-size: 1.5rem;
   padding-bottom: 0.5rem;
+  font-family: Merriweather, serif;
   width: 50%;
 }
 
@@ -63,13 +66,15 @@
   border: 2px solid black;
 }
 
-.siteLink {
-  composes: siteLink from '../../pages/root/Root.module.css';
-  margin-top: 2rem !important;
-}
-
-.siteLinkRef {
-  composes: siteLinkRef from '../../pages/root/Root.module.css';
+.employmentHomeLink a {
+  font-weight: bold;
+  text-decoration: none;
+  background-color: rgb(223, 220, 183);
+  border-radius: 0.25rem;
+  padding: 0.5rem;
+  width: 50%;
+  color: black;
+  font-size: 1rem;
 }
 
 @media (max-width: 768px) {

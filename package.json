@@ -8,7 +8,11 @@
     "build": "react-router build",
     "lint": "eslint .",
     "start": "react-router-serve ./build/server/index.js",
-    "preview": "react-router-serve ./build/server/index.js"
+    "preview": "react-router-serve ./build/server/index.js",
+    "db:push": "prisma db push",
+    "db:generate": "prisma generate",
+    "db:sync": "prisma db push && prisma generate",
+    "db:script": "node app/.server/db-tasks.js"
   },
   "dependencies": {
     "@prisma/adapter-better-sqlite3": "^7.8.0",

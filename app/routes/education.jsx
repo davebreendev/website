@@ -1,4 +1,4 @@
-import EducationHome from "../components/education/EducationHome";
+import EducationHome from "../pages/education/EducationHome";
 
 import { useRouteLoaderData } from "react-router";
 

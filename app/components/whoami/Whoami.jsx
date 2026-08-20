@@ -1,3 +1,5 @@
+import { Link } from 'react-router';
+
 import styles from './Whoami.module.css';
 
 export default function Whoami({ whoami }) {
@@ -11,6 +13,9 @@ export default function Whoami({ whoami }) {
           {intro.map((paragraph, index) => {
             return <p id={index} key={index}>{paragraph}</p>
           })}
+          <div className={styles.siteLink} >
+            <Link to='/whoami' state={whoami} className={styles.siteLinkRef}>Whoami Home</Link>
+          </div>
         </div>
       </div>
     </>

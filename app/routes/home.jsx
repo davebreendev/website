@@ -1,4 +1,4 @@
-import Main from "../components/main/Main";
+import Home from "../pages/home/Home";
 
 import { useRouteLoaderData } from "react-router";
 
@@ -6,7 +6,7 @@ export default function HomeRoute() {
   const { whoami, education, employers, jobs, influences, resources, interests } = useRouteLoaderData("app-layout");
 
   return (
-    <Main
+    <Home
       whoami={whoami}
       education={education}
       employers={employers}

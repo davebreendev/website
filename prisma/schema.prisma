@@ -11,6 +11,7 @@ model education {
   id         Int    @id @default(autoincrement())
   name       String
   attendance String
+  description String
   img        String
 }
 

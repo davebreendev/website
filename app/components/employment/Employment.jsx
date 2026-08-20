@@ -1,3 +1,4 @@
+import { Link } from 'react-router';
 import styles from './Employment.module.css';
 
 export default function Employment({ employers, jobs }) {
@@ -16,12 +17,18 @@ export default function Employment({ employers, jobs }) {
                   return (
                     <div className={styles.job} key={index}>
                       <h4>{job.role} - {job.term}</h4>
-                      <p>{job.description}
-                      </p>
+                      <p>{job.description}</p>
                     </div>
                   )
                 }
               })}
+              {
+                index === employers.length - 1 && (
+                  <div className={styles.siteLink}>
+                    <Link to='/employment' className={styles.siteLinkRef}>Employment Home</Link>
+                  </div>
+                )
+              }
             </div>
           )
         })}

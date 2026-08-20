@@ -1,8 +1,10 @@
 .interestsBanner {
-  composes: banner from '../../pages/root/Root.module.css';
   color: white;
+  font-size: 2rem;
+  top: 5rem;
   font-family: Inconsolata, monospace;
-  background: rgb(0, 0, 0, 0.7);
+  text-align: center;
+  background-color: black;
   border: 1px solid black;
 }
 
@@ -10,18 +12,15 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 90%;
-  font-family: Inconsolata, monospace;
 }
 
 .interest {
   display: flex;
-  background: black;
+  background-color: black;
+  color: white;
   padding: 2rem 5rem;
   margin: 2rem 0;
   align-items: center;
-  border-radius: 2rem;
-  background: rgb(0, 0, 0, 0.7);
 }
 
 .interestLabel {
@@ -29,21 +28,23 @@
   flex-direction: column;
   width: 50%;
   padding: 1rem;
-  align-items: center;
-  color: white;
 }
 
 .interestLabel h3 {
   text-align: center;
+  color: white;
   padding: 2rem;
   font-size: 3rem;
+  font-family: Inconsolata, monospace;
   border-radius: 2rem;
   border: 2px solid white;
 }
 
 .interestLabel p {
   text-align: center;
-  font-size: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  font-family: Inconsolata, monospace;
 }
 
 .interestImage {
@@ -60,14 +61,19 @@
   border: 2px solid white;
 }
 
-.siteLink {
-  composes: homeLink from '../../pages/root/Root.module.css';
-  margin-top: 5rem !important;
+.interestsHomeLink {
+  margin-top: 2rem;
 }
 
-.siteLinkRef {
-  composes: homeLinkRef from '../../pages/root/Root.module.css';
-  font-size: 1.25rem !important;
+.interestsHomeLink a {
+  font-weight: bold;
+  text-decoration: none;
+  background-color: rgb(223, 220, 183);
+  border-radius: 0.25rem;
+  padding: 0.5rem;
+  color: black;
+  font-size: 1rem;
+  font-family: Inconsolata, monospace;
 }
 
 @media (max-width: 768px) {
@@ -82,6 +88,7 @@
   .interestLabel h3 {
     padding: 1rem;
     font-size: 2rem;
+    font-family: Inconsolata, monospace;
     border: 1px solid black;
     border-radius: 2rem;
     border: 2px solid white;

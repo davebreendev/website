@@ -4,14 +4,21 @@
   font-family: Montserrat, sans-serif;
   padding: 2rem;
   justify-content: center;
-  opacity: 0.7;
-  background-color: white;
 }
 
 .whoamiContent {
   padding: 1rem;
-  width: 50%;
+  width: 75%;
   text-align: center;
   border-radius: 1rem;
   border: 2px solid black;
+  background: rgb(255, 255, 255, 0.7);
+}
+
+.siteLink {
+  composes: siteLink from '../../pages/root/Root.module.css';
+}
+
+.siteLinkRef {
+  composes: siteLinkRef from '../../pages/root/Root.module.css';
 }

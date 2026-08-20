@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from 'react-router';
 import { getCentralImageUrl } from '../../utils/imageResolver';
 
 import styles from './Influences.module.css';
@@ -55,12 +56,19 @@ export default function Influences({ influences, resources }) {
               {resources.filter((resource) => resource.influence_id === influence.id)
                 .map((resource, index) => (
                   <li key={index}>
-                    <a href={resource.url}>{resource.name}</a>
+                    <Link to={resource.url}>{resource.name}</Link>
                     <p>{resource.details}</p>
                   </li>
                 ))
               }
             </ul>
+            {
+              influenceIndex === influences.length - 1 && (
+                <div className={styles.siteLink}>
+                  <Link to='/influences' className={styles.siteLinkRef}>Influences Home</Link>
+                </div>
+              )
+            }
           </div>
 
           <button

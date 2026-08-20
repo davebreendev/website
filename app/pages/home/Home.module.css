@@ -1,0 +1,12 @@
+.Home {
+  background-image: url("/images/background.jpg");
+  height: 100%;
+  background-attachment: fixed;
+  background-size: cover;
+  min-height: 100vh;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 5rem;
+  align-items: center;
+}
