@@ -3,17 +3,15 @@ import { Link, useRouteLoaderData } from 'react-router';
 
 import { GalleryModal } from '../../components/portals/GalleryModal';
 import { getCentralImageUrl } from '../../utils/imageResolver';
-
 import styles from './EducationHome.module.css';
 
 export default function EducationHome() {
   const [openGallery, setOpenGallery] = useState(false);
-  // const [galleryTopic, setGalleryTopic] = useState("");
   const { education } = useRouteLoaderData("app-layout");
 
   const launchGallery = (topic) => {
     setOpenGallery(true);
-    console.log(`Launching gallery for ${topic}`)
+    console.log(`Launching gallery for ${topic}`);
   }
 
   return (

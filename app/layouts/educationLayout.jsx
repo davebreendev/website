@@ -1,26 +1,19 @@
 import { Outlet } from "react-router";
-// import { prisma } from "../.server/db"; // Your Prisma client
 
-// 1. Declare 'params' in the loader arguments to receive URL variables
-export async function loader({ params }) {
-  const { siteId } = params;
+import {
+  getEducationData
+} from "../.server/start-up";
 
-  if (!siteId) {
-    console.log(`siteId not found`);
-  }
+import {
+  getGallery
+} from "../.server/site-data";
 
-  console.log(`siteId Found: ${siteId}`);
-  // Ad-hoc read: Fetch ONLY data for this specific site
-  // const siteData = await prisma.site.findUnique({
-  //   where: { id: siteId },
-  //   include: {
-  //     pages: true, // Fetch related sub-pages if needed
-  //   },
-  // });
+export async function loader() {
+  const education = await getEducationData();
+  const gallery = await getGallery("Institution_1");
+  return { education, gallery };
+}
 
-  // if (!siteData) {
-  //   throw new Response("Site not found", { status: 404 });
-  // }
-
-  return { siteId };
+export default function EducationLayout() {
+  return <Outlet />;
 }

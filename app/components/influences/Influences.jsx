@@ -39,16 +39,6 @@ export default function Influences({ influences, resources }) {
           </button>
 
           <div className={styles.influenceLabel} id="influence-label">
-            {/* 
-            Future Page Route hook: wrapping the title in an anchor tag 
-
-            <h2>
-              <a href={`/influences/${influence.id}`} className={styles.routeLink}>
-                {influence.name}
-              </a>
-            </h2>
-
-            */}
             <h2>{influence.name}</h2>
             <p>{influence.subject}</p>
 

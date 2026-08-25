@@ -5,7 +5,9 @@ export default [
     route("/", "./pages/root/Root.jsx", [
       index("./routes/home.jsx"),
       route("whoami", "./pages/whoami/WhoamiHome.jsx"),
-      route("education", "./pages/education/EducationHome.jsx"),
+      layout("./layouts/educationLayout.jsx", { id: "education-layout" }, [
+        route("education", "./pages/education/EducationHome.jsx")
+      ]),
       route("employment", "./pages/employment/EmploymentHome.jsx"),
       route("influences", "./pages/influences/InfluencesHome.jsx"),
       route("interests", "./pages/interests/InterestsHome.jsx"),

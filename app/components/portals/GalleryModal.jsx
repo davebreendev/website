@@ -3,7 +3,7 @@ import { createPortal } from 'react-dom';
 
 import styles from './GalleryModal.module.css';
 
-export function GalleryModal({ openGallery, onClose, titleId, children }) {
+export function GalleryModal({ openGallery, onClose, titleId, children, gallery }) {
   const modalRef = useRef(null);
   const previousElementRef = useRef(null);
 
