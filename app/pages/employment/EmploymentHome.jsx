@@ -1,10 +1,10 @@
-import { Link, useRouteLoaderData } from 'react-router';
+import { Link, useLoaderData } from 'react-router';
 import Employment from '../../components/employment/Employment';
 
 import styles from './EmploymentHome.module.css';
 
 export default function EmploymentHome() {
-  const { employers, jobs } = useRouteLoaderData("app-layout");
+  const { employers, jobs } = useLoaderData();
   return (
     <>
       <Employment

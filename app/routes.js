@@ -1,18 +1,14 @@
 import { layout, route, index } from "@react-router/dev/routes";
 
 export default [
-  layout("./layouts/appLayout.jsx", { id: "app-layout" }, [
-    route("/", "./pages/root/Root.jsx", [
-      index("./routes/home.jsx"),
-      route("whoami", "./pages/whoami/WhoamiHome.jsx"),
-      layout("./layouts/educationLayout.jsx", { id: "education-layout" }, [
-        route("education", "./pages/education/EducationHome.jsx")
-      ]),
-      route("employment", "./pages/employment/EmploymentHome.jsx"),
-      route("influences", "./pages/influences/InfluencesHome.jsx"),
-      route("interests", "./pages/interests/InterestsHome.jsx"),
-      route("*", "./pages/pageNotFound/PageNotFound.jsx"),
-      route("contact", "./pages/contact/ContactSent.jsx")
-    ])
+  layout("./layouts/appLayout.jsx", { id: "app-data" }, [
+    index("./routes/home.jsx"),
+    route("whoami", "./routes/whoami.jsx"),
+    route("education", "./routes/education.jsx"),
+    route("employment", "./routes/employment.jsx"),
+    route("influences", "./routes/influences.jsx"),
+    route("interests", "./routes/interests.jsx"),
+    route("*", "./pages/pageNotFound/PageNotFound.jsx"),
+    route("contact", "./pages/contact/ContactSent.jsx")
   ])
 ]

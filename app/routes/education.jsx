@@ -1,13 +1,16 @@
 import EducationHome from "../pages/education/EducationHome";
 
-import { useRouteLoaderData } from "react-router";
+import {
+  getEducationData
+} from "../.server/site-data";
+
+export async function loader() {
+  const education = await getEducationData();
+  return { education };
+}
 
 export default function EducationRoute() {
-  const { education, galleryId } = useRouteLoaderData("education-layout");
   return (
-    <EducationHome
-      education={education}
-      galleryId={galleryId}
-    />
+    <EducationHome />
   );
 }

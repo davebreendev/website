@@ -1,28 +1,15 @@
 import { Outlet } from "react-router";
 
-import {
-  getWhoamiData,
-  getEducationData,
-  getEmployersData,
-  getJobsData,
-  getInfluencesData,
-  getResourcesData,
-  getInterestsData
-} from "../.server/start-up";
-
-export async function loader() {
-  const [whoami, education, employers, jobs, influences, resources, interests] = await Promise.all([
-    getWhoamiData(),
-    getEducationData(),
-    getEmployersData(),
-    getJobsData(),
-    getInfluencesData(),
-    getResourcesData(),
-    getInterestsData(),
-  ]);
-  return { whoami, education, employers, jobs, influences, resources, interests };
-}
+import Header from "../components/header/Header";
+import Footer from "../components/footer/Footer";
+import PageNotFound from '../pages/pageNotFound/PageNotFound';
 
 export default function AppLayout() {
-  return <Outlet />;
+  return (
+    <div>
+      <Header />
+      <Outlet />
+      <Footer />
+    </div>
+  )
 }

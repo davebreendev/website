@@ -1,10 +1,10 @@
-import { Link, useRouteLoaderData } from 'react-router';
+import { Link, useLoaderData } from 'react-router';
 import Interests from '../../components/interests/Interests';
 
 import styles from './InterestsHome.module.css';
 
 export default function InterestsHome() {
-  const { interests } = useRouteLoaderData("app-layout");
+  const { interests } = useLoaderData();
   return (
     <>
       <Interests

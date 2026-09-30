@@ -1,12 +1,16 @@
 import WhoamiHome from "../pages/whoami/WhoamiHome";
 
-import { useRouteLoaderData } from "react-router";
+import {
+  getWhoamiData
+} from "../.server/site-data";
+
+export async function loader() {
+  const whoami = await getWhoamiData();
+  return { whoami };
+}
 
 export default function WhoamiRoute() {
-  const { whoami } = useRouteLoaderData("app-layout");
   return (
-    <WhoamiHome
-      whoami={whoami}
-    />
+    <WhoamiHome />
   );
 }

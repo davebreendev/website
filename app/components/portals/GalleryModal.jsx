@@ -3,14 +3,14 @@ import { createPortal } from 'react-dom';
 
 import styles from './GalleryModal.module.css';
 
-export function GalleryModal({ openGallery, onClose, titleId, children, gallery }) {
+export function GalleryModal({ openGallery, onClose, titleId, children }) {
   const modalRef = useRef(null);
   const previousElementRef = useRef(null);
 
   useEffect(() => {
     if (!openGallery) return;
 
-    previousElementRef.current = document.activeElement.parentElement;
+    previousElementRef.current = document.activeElement;
 
     const handleKeyDown = (event) => {
       if (event.key === 'Escape') {
