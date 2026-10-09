@@ -3,6 +3,47 @@ import { createPortal } from 'react-dom';
 
 import styles from './GalleryModal.module.css';
 
+
+/*
+import { useLoaderData, useNavigate } from "react-router";
+import { createPortal } from "react-dom";
+import { getGalleryId, getImages } from "~/.server/site-data";
+
+export async function loader({ params }) {
+  /* Fetches DB data lazily ONLY when the modal route is visited
+  const topic = params.topic;
+  const galleryId = await getGalleryId(topic);
+  const gallery = await getImages(galleryId);
+  return { topic, gallery };
+}
+
+export default function GalleryModal() {
+  const { gallery } = useLoaderData();
+  const navigate = useNavigate();
+
+  const handleClose = () => {
+    /* Navigating up one level returns the URL to /education and unmounts the modal
+    navigate(".."); 
+  };
+
+  const modalContent = (
+    <div className="modal-backdrop" onClick={handleClose}>
+      <div className="modal-body" onClick={(e) => e.stopPropagation()}>
+        <button onClick={handleClose}>Close</button>
+        <div className="gallery-grid">
+          {gallery.map((img) => (
+            <img key={img.id} src={img.url} alt={img.caption} />
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+
+  /* Render using a Portal (or direct fixed position JSX)
+  return createPortal(modalContent, document.body);
+}
+*/
+
 export function GalleryModal({ openGallery, onClose, titleId, children }) {
   const modalRef = useRef(null);
   const previousElementRef = useRef(null);
