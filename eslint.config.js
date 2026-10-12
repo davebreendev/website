@@ -31,7 +31,7 @@ export default defineConfig([
     Allow loader, action etc. exports from routes
   */
   {
-    files: ["app/routes/**/*.{js,jsx,ts,tsx}", "app/layouts/**/*.{js,jsx,ts,tsx}", "app/pages/**/*.{js,jsx,ts,tsx}"],
+    files: ["app/routes/**/*.{js,jsx,ts,tsx}", "app/layouts/**/*.{js,jsx,ts,tsx}", "app/pages/**/*.{js,jsx,ts,tsx}", "app/components/**/*.{js,jsx,ts,tsx}"],
     rules: {
       "react-refresh/only-export-components": "off",
     },

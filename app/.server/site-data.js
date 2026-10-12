@@ -110,7 +110,7 @@ export async function getGallery(galleryTopic) {
 
 export async function getImages(topic) {
   try {
-    const images = await prisma.galleries.findMany({ where: { galleryTopic: topic } });
+    const images = await prisma.images.findMany({ where: { galleryTopic: topic } });
     return images;
   }
   catch (error) {

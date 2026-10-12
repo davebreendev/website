@@ -1,8 +1,31 @@
 import { useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
+import { useLoaderData, useNavigate } from "react-router";
 
 import styles from './GalleryModal.module.css';
 
+
+/*
+route: galleryModal
+
+import {
+  getGallery,
+  getImages
+} from "../.server/site-data";
+
+export async function loader({ galleryId }) {
+  const gallery = await getGallery(galleryId);
+  const galleryImages = await getImages(gallery.subject);
+  console.log(`images: ${JSON.stringify(galleryImages)}`);
+  return galleryImages;
+}
+
+export default function GalleryRoute() {
+  return (
+    <GalleryModal />
+  );
+}
+*/
 
 /*
 import { useLoaderData, useNavigate } from "react-router";
@@ -44,9 +67,10 @@ export default function GalleryModal() {
 }
 */
 
-export function GalleryModal({ openGallery, onClose, titleId, children }) {
+export function GalleryModal({ openGallery, onClose, titleId }) {
   const modalRef = useRef(null);
   const previousElementRef = useRef(null);
+  const { galleryImages } = useLoaderData();
 
   useEffect(() => {
     if (!openGallery) return;
@@ -104,7 +128,7 @@ export function GalleryModal({ openGallery, onClose, titleId, children }) {
         className={styles.modalContent}
         onClick={(event) => event.stopPropagation()}
       >
-        {children}
+        {JSON.stringify(galleryImages)}
       </div>
     </div>,
     document.body
