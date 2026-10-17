@@ -1,18 +1,10 @@
-import { useState } from 'react';
-import { Link, useLoaderData } from 'react-router';
-
-import { GalleryModal } from '../../components/portals/GalleryModal';
+import { Link, Outlet, useLoaderData } from 'react-router';
 import { getCentralImageUrl } from '../../utils/imageResolver';
 import styles from './EducationHome.module.css';
 
 export default function EducationHome() {
-  const [openGallery, setOpenGallery] = useState(false);
   const { education } = useLoaderData();
 
-  const launchGallery = (topic) => {
-    setOpenGallery(true);
-    console.log(`Launching gallery for ${topic}`);
-  }
   /*
   import { Outlet, useLoaderData, Link } from "react-router";
   import { prisma } from "~/.server/db";
@@ -61,13 +53,12 @@ export default function EducationHome() {
                   <h3>{institution.attendance}</h3>
                 </div>
                 <div className={styles.institutionImage} style={{ backgroundImage: `url(${getCentralImageUrl(institution.img)})` }}>
-                  <button
-                    id="previous"
-                    onClick={() => launchGallery(institution.name)}
+                  <Link
+                    to={`/gallery/${institution.name}`}
                     className={styles.seeMoreButton}
                   >
                     See More
-                  </button>
+                  </Link>
                 </div>
               </div>
               <div className={styles.institutionDescription}>
@@ -77,6 +68,7 @@ export default function EducationHome() {
                   )
                 })}
               </div>
+              <Outlet />
             </div>
           )
         })}
@@ -89,12 +81,6 @@ export default function EducationHome() {
           </Link>
         </div>
       </div>
-      <GalleryModal
-        openGallery={openGallery}
-        onClose={() => setOpenGallery(false)}
-        titleId={'Testing Modal'}
-        children={<h1>MODAL CONTENT</h1>}
-      />
     </div>
   );
 }

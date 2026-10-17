@@ -1,76 +1,13 @@
 import { useEffect, useRef } from 'react';
-import { createPortal } from 'react-dom';
-import { useLoaderData, useNavigate } from "react-router";
 
 import styles from './GalleryModal.module.css';
 
-
-/*
-route: galleryModal
-
-import {
-  getGallery,
-  getImages
-} from "../.server/site-data";
-
-export async function loader({ galleryId }) {
-  const gallery = await getGallery(galleryId);
-  const galleryImages = await getImages(gallery.subject);
-  console.log(`images: ${JSON.stringify(galleryImages)}`);
-  return galleryImages;
-}
-
-export default function GalleryRoute() {
-  return (
-    <GalleryModal />
-  );
-}
-*/
-
-/*
-import { useLoaderData, useNavigate } from "react-router";
-import { createPortal } from "react-dom";
-import { getGalleryId, getImages } from "~/.server/site-data";
-
-export async function loader({ params }) {
-  /* Fetches DB data lazily ONLY when the modal route is visited
-  const topic = params.topic;
-  const galleryId = await getGalleryId(topic);
-  const gallery = await getImages(galleryId);
-  return { topic, gallery };
-}
-
-export default function GalleryModal() {
-  const { gallery } = useLoaderData();
-  const navigate = useNavigate();
-
-  const handleClose = () => {
-    /* Navigating up one level returns the URL to /education and unmounts the modal
-    navigate(".."); 
-  };
-
-  const modalContent = (
-    <div className="modal-backdrop" onClick={handleClose}>
-      <div className="modal-body" onClick={(e) => e.stopPropagation()}>
-        <button onClick={handleClose}>Close</button>
-        <div className="gallery-grid">
-          {gallery.map((img) => (
-            <img key={img.id} src={img.url} alt={img.caption} />
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-
-  /* Render using a Portal (or direct fixed position JSX)
-  return createPortal(modalContent, document.body);
-}
-*/
-
-export function GalleryModal({ openGallery, onClose, titleId }) {
+export function GalleryModal({ openGallery, onClose, topic, galleryImages }) {
+  console.log(`openGallery: ${openGallery}`);
+  console.log(`onClose: ${onClose}`);
+  console.log(`topic: ${topic}`);
   const modalRef = useRef(null);
   const previousElementRef = useRef(null);
-  const { galleryImages } = useLoaderData();
 
   useEffect(() => {
     if (!openGallery) return;
@@ -114,23 +51,24 @@ export function GalleryModal({ openGallery, onClose, titleId }) {
 
   if (!openGallery || typeof window === 'undefined') return null;
 
-  return createPortal(
-    <div
-      className={styles.modalBackground}
-      onClick={onClose}
-    >
+  return (
+    <>
       <div
-        ref={modalRef}
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby={titleId}
-        tabIndex={-1}
-        className={styles.modalContent}
-        onClick={(event) => event.stopPropagation()}
+        className={styles.modalBackground}
+        onClick={onClose}
       >
-        {JSON.stringify(galleryImages)}
+        <div
+          ref={modalRef}
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby={topic}
+          tabIndex={-1}
+          className={styles.modalContent}
+          onClick={(event) => event.stopPropagation()}
+        >
+          {JSON.stringify(galleryImages)}
+        </div>
       </div>
-    </div>,
-    document.body
+    </>
   );
 }

@@ -8,6 +8,7 @@ export default [
     route("employment", "./routes/employment.jsx"),
     route("influences", "./routes/influences.jsx"),
     route("interests", "./routes/interests.jsx"),
+    route("gallery/:topic", "./routes/gallery.jsx"),
     route("*", "./pages/pageNotFound/PageNotFound.jsx"),
     route("contact", "./pages/contact/ContactSent.jsx")
   ])
