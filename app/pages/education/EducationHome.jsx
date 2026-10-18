@@ -43,10 +43,10 @@ export default function EducationHome() {
   return (
     <div className={styles.Education}>
       <div className={styles.education}>
-        {education.map((institution, index) => {
+        {education.map((institution) => {
           const description = institution.description.split('\\n');
           return (
-            <div className={styles.institution} key={index}>
+            <div className={styles.institution} key={institution.name}>
               <div className={styles.institutionPanel}>
                 <div className={styles.institutionDetails}>
                   <h2>{institution.name}</h2>
@@ -54,8 +54,9 @@ export default function EducationHome() {
                 </div>
                 <div className={styles.institutionImage} style={{ backgroundImage: `url(${getCentralImageUrl(institution.img)})` }}>
                   <Link
-                    to={`/gallery/${institution.name}`}
+                    to={`gallery/${institution.name}`}
                     className={styles.seeMoreButton}
+                    state={{ source: "education" }}
                   >
                     See More
                   </Link>
@@ -68,7 +69,6 @@ export default function EducationHome() {
                   )
                 })}
               </div>
-              <Outlet />
             </div>
           )
         })}
@@ -81,6 +81,7 @@ export default function EducationHome() {
           </Link>
         </div>
       </div>
+      <Outlet />
     </div>
   );
 }

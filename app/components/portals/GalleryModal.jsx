@@ -2,15 +2,12 @@ import { useEffect, useRef } from 'react';
 
 import styles from './GalleryModal.module.css';
 
-export function GalleryModal({ openGallery, onClose, topic, galleryImages }) {
-  console.log(`openGallery: ${openGallery}`);
-  console.log(`onClose: ${onClose}`);
+export function GalleryModal({ onClose, topic, galleryImages }) {
   console.log(`topic: ${topic}`);
   const modalRef = useRef(null);
   const previousElementRef = useRef(null);
 
   useEffect(() => {
-    if (!openGallery) return;
 
     previousElementRef.current = document.activeElement;
 
@@ -47,9 +44,7 @@ export function GalleryModal({ openGallery, onClose, topic, galleryImages }) {
       document.removeEventListener('keydown', handleKeyDown);
       previousElementRef.current?.focus();
     };
-  }, [openGallery, onClose]);
-
-  if (!openGallery || typeof window === 'undefined') return null;
+  }, [onClose]);
 
   return (
     <>
