@@ -1,45 +1,11 @@
-import { Link, Outlet, useLoaderData } from 'react-router';
+import { Link, Outlet, useLoaderData, useLocation } from 'react-router';
 import { getCentralImageUrl } from '../../utils/imageResolver';
 import styles from './EducationHome.module.css';
 
 export default function EducationHome() {
   const { education } = useLoaderData();
+  const location = useLocation();
 
-  /*
-  import { Outlet, useLoaderData, Link } from "react-router";
-  import { prisma } from "~/.server/db";
-  
-  export async function loader() {
-    /* Fetch data needed for the main Education page
-    const institutions = await prisma.institution.findMany();
-    return { institutions };
-  }
-  
-  export default function EducationHome() {
-    const { institutions } = useLoaderData();
-  
-    return (
-      <div className="education-home">
-        <h1>Education Directory</h1>
-        
-        <div className="institution-grid">
-          {institutions.map((inst) => (
-            <div key={inst.id} className="card">
-              <h3>{inst.name}</h3>
-              {/* Clicking this opens the modal by navigating to the child route }
-              <Link to={`${inst.id}/gallery`}>
-                <img src={inst.coverImage} alt={inst.name} />
-              </Link>
-            </div >
-          ))}
-        </div >
-  
-    {/* The GalleryModal will be injected here when the route matches :topic/gallery }
-    < Outlet />
-      </div >
-    );
-  }
-  */
   return (
     <div className={styles.Education}>
       <div className={styles.education}>
@@ -56,7 +22,7 @@ export default function EducationHome() {
                   <Link
                     to={`gallery/${institution.name}`}
                     className={styles.seeMoreButton}
-                    state={{ source: "education" }}
+                    state={{ backgroundLocation: location }}
                   >
                     See More
                   </Link>

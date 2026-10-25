@@ -1,5 +1,3 @@
-import { useRef } from 'react';
-import { createPortal } from 'react-dom';
 import { useLoaderData, useLocation, useNavigate } from "react-router";
 
 import { GalleryModal } from '../components/portals/GalleryModal';
@@ -15,22 +13,25 @@ export async function loader({ params }) {
 }
 
 export default function Gallery() {
+
   const location = useLocation();
-  const source = location.state?.source || ''
+  const pathname = location.pathname.split('/').filter(Boolean);
+  const galleryIndex = pathname.indexOf('gallery');
+  const source = pathname.slice(0, galleryIndex);
+
+  console.log(`source: /${source}`);
+
   let navigate = useNavigate();
   let { topic, galleryImages } = useLoaderData();
-  let buttonRef = useRef(null);
 
   function onClose() {
     navigate(`/${source}`);
   }
 
-  return createPortal(
+  return (
     <GalleryModal
       onClose={onClose}
-      initialFocusRef={buttonRef}
       topic={topic}
-      galleryImages={galleryImages} />,
-    document.body
+      galleryImages={galleryImages} />
   );
 }
