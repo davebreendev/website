@@ -22,7 +22,6 @@ export default function EducationHome() {
                   <Link
                     to={`gallery/${institution.name}`}
                     className={styles.seeMoreButton}
-                    state={{ backgroundLocation: location }}
                   >
                     See More
                   </Link>
