@@ -1,6 +1,6 @@
 import { useLoaderData, useLocation, useNavigate } from "react-router";
 
-import { GalleryModal } from '../components/portals/GalleryModal';
+import { GalleryModal } from '../components/gallery/GalleryModal';
 
 import {
   getImages

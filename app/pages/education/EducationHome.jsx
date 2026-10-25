@@ -1,10 +1,9 @@
-import { Link, Outlet, useLoaderData, useLocation } from 'react-router';
+import { Link, Outlet, useLoaderData } from 'react-router';
 import { getCentralImageUrl } from '../../utils/imageResolver';
 import styles from './EducationHome.module.css';
 
 export default function EducationHome() {
   const { education } = useLoaderData();
-  const location = useLocation();
 
   return (
     <div className={styles.Education}>

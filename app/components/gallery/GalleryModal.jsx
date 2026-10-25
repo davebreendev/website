@@ -1,11 +1,18 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
+
+import { getCentralImageUrl } from '../../utils/imageResolver';
 
 import styles from './GalleryModal.module.css';
 
 export function GalleryModal({ onClose, topic, galleryImages }) {
-  console.log(`topic: ${topic}`);
   const modalRef = useRef(null);
   const previousElementRef = useRef(null);
+  const [focusIndex, setFocusIndex] = useState(0);
+  const mainImage = galleryImages[focusIndex];
+
+  const handleImageFocus = (image) => {
+    setFocusIndex(galleryImages.indexOf(image));
+  }
 
   useEffect(() => {
 
@@ -44,6 +51,7 @@ export function GalleryModal({ onClose, topic, galleryImages }) {
       document.removeEventListener('keydown', handleKeyDown);
       previousElementRef.current?.focus();
     };
+
   }, [onClose]);
 
   return (
@@ -61,9 +69,52 @@ export function GalleryModal({ onClose, topic, galleryImages }) {
           className={styles.modalContent}
           onClick={(event) => event.stopPropagation()}
         >
-          {JSON.stringify(galleryImages)}
+          <div key={mainImage["name"]}>
+            <img
+              src={getCentralImageUrl(mainImage["name"])}
+              alt={mainImage["alt"]} />
+            <h3>{mainImage["caption"]}</h3>
+          </div>
+
+          <div className={styles.imageList}>
+            {galleryImages.map((image) => {
+              return (
+                <div className={styles.imageItem} key={image.name}>
+                  <img
+                    src={getCentralImageUrl(image.name)}
+                    alt={image.alt}
+                    onClick={() => handleImageFocus(image)} />
+                </div>
+              );
+            })}
+          </div>
         </div>
       </div>
     </>
   );
 }
+
+/*
+
+  {education.map((institution, index) => {
+    return (
+      <div className={styles.institution} key={index}>
+        <div className={styles.institutionImage}>
+          <img
+            src={getCentralImageUrl(institution.img)} />
+        </div>
+        <div className={styles.institutionLabel}>
+          <h2>{institution.name}</h2>
+          <h3>{institution.attendance}</h3>
+          {
+            index === education.length - 1 && (
+              <div className={styles.siteLink} >
+                <Link to='/education' className={styles.siteLinkRef}>Education Home</Link>
+              </div>
+            )
+          }
+        </div>
+      </div>
+    );
+
+*/
