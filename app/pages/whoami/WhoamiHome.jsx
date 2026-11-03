@@ -1,9 +1,9 @@
-import { Link, useRouteLoaderData } from 'react-router';
+import { Link, useLoaderData } from 'react-router';
 
 import styles from './WhoamiHome.module.css';
 
 export default function WhoamiHome() {
-  const { whoami } = useRouteLoaderData("app-layout");
+  const { whoami } = useLoaderData();
   const intro = whoami.introduction.split('\\n');
   return (
     <div className={styles.Whoami}>

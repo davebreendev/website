@@ -1,12 +1,18 @@
 import EmploymentHome from "../pages/employment/EmploymentHome";
 
-import { useRouteLoaderData } from "react-router";
+import {
+  getEmployersData,
+  getJobsData
+} from "../.server/site-data";
+
+export async function loader() {
+  const employers = await getEmployersData();
+  const jobs = await getJobsData();
+  return { employers, jobs };
+}
 
 export default function EmploymentRoute() {
-  const { employment } = useRouteLoaderData("app-layout");
   return (
-    <EmploymentHome
-      employment={employment}
-    />
+    <EmploymentHome />
   );
 }

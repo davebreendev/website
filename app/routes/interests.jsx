@@ -1,12 +1,16 @@
 import InterestsHome from "../pages/interests/InterestsHome";
 
-import { useRouteLoaderData } from "react-router";
+import {
+  getInterestsData
+} from "../.server/site-data";
+
+export async function loader() {
+  const interests = await getInterestsData();
+  return { interests };
+}
 
 export default function InterestsRoute() {
-  const { interests } = useRouteLoaderData("app-layout");
   return (
-    <InterestsHome
-      interests={interests}
-    />
+    <InterestsHome />
   );
 }

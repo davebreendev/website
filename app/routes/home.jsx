@@ -1,19 +1,17 @@
 import Home from "../pages/home/Home";
 
-import { useRouteLoaderData } from "react-router";
+import {
+  getWebsiteData
+} from "../.server/start-up";
+
+export async function loader() {
+  const loaderData = await getWebsiteData();
+  return loaderData;
+}
 
 export default function HomeRoute() {
-  const { whoami, education, employers, jobs, influences, resources, interests } = useRouteLoaderData("app-layout");
 
   return (
-    <Home
-      whoami={whoami}
-      education={education}
-      employers={employers}
-      jobs={jobs}
-      influences={influences}
-      resources={resources}
-      interests={interests}
-    />
+    <Home />
   );
 }
