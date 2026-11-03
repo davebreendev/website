@@ -43,29 +43,6 @@
   justify-content: center;
 }
 
-/* Fixed Background images
-.institutionImage {
-  background-attachment: fixed;
-  background-size: cover;
-  min-height: 35dvh;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 5rem;
-  align-items: center;
-}
-
-.institutionImage:hover .seeMoreButton {
-  display: block;
-}
-
-.institutionImage img {
-  display: block;
-  max-width: 100%;
-  border-radius: 1rem;
-}
-*/
-
 .institutionImage {
   background-size: cover;
   display: flex;

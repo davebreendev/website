@@ -11,7 +11,6 @@ export async function getWebsiteData() {
     prisma.resources.findMany(),
     prisma.interests.findMany()
   ]);
-  console.log(`getWebsiteData`);
 
   return { whoami, education, employers, jobs, influences, resources, interests };
 }

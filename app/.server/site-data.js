@@ -5,14 +5,15 @@ import { prisma } from "./db";
 export async function getWhoamiData() {
   try {
     const whoami = await prisma.whoami.findFirst();
-    console.log(`start-up: getWhoamiData: ${JSON.stringify(whoami)}`)
     return whoami;
   }
   catch (error) {
     console.log(`getWhoamiData: ERROR---`)
-    // Known Prisma Engine Errors (Database constraints, target not found, etc.)
     if (error instanceof Prisma.PrismaClientKnownRequestError) {
       console.error(`Prisma Known Error [${error.code}]:`, error.message);
+    }
+    else {
+      console.error(`Unknown Error [${error.code}]:`, error.message);
     }
   }
 }

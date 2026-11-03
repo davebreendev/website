@@ -35,5 +35,8 @@ export default defineConfig([
     rules: {
       "react-refresh/only-export-components": "off",
     },
+    globals: {
+      ...globals.node,
+    }
   }
 ])

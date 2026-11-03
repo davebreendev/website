@@ -55,31 +55,33 @@ export function GalleryModal({ onClose, topic, galleryImages }) {
   }, [onClose]);
 
   return (
-    <>
+    <div
+      className={styles.modalBackground}
+      onClick={onClose}
+    >
+      <h2 className={styles.closeModal}>X Close</h2>
       <div
-        className={styles.modalBackground}
-        onClick={onClose}
+        ref={modalRef}
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby={topic}
+        tabIndex={-1}
+        className={styles.modalContent}
+        onClick={(event) => event.stopPropagation()}
       >
-        <div
-          ref={modalRef}
-          role="dialog"
-          aria-modal="true"
-          aria-labelledby={topic}
-          tabIndex={-1}
-          className={styles.modalContent}
-          onClick={(event) => event.stopPropagation()}
-        >
-          <div key={mainImage["name"]}>
+        <div className={styles.galleryModal}>
+          <div className={styles.galleryViewer} key={mainImage["name"]}>
             <img
+              className={styles.galleryMainImage}
               src={getCentralImageUrl(mainImage["name"])}
               alt={mainImage["alt"]} />
-            <h3>{mainImage["caption"]}</h3>
+            <h3 className={styles.mainImageCaption}>{mainImage["caption"]}</h3>
           </div>
 
-          <div className={styles.imageList}>
+          <div className={styles.galleryThumbnails}>
             {galleryImages.map((image) => {
               return (
-                <div className={styles.imageItem} key={image.name}>
+                <div className={`${styles.thumbnail} ${mainImage === image ? styles.activeThumbnail : ''}`} key={image.name}>
                   <img
                     src={getCentralImageUrl(image.name)}
                     alt={image.alt}
@@ -90,31 +92,6 @@ export function GalleryModal({ onClose, topic, galleryImages }) {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
-
-/*
-
-  {education.map((institution, index) => {
-    return (
-      <div className={styles.institution} key={index}>
-        <div className={styles.institutionImage}>
-          <img
-            src={getCentralImageUrl(institution.img)} />
-        </div>
-        <div className={styles.institutionLabel}>
-          <h2>{institution.name}</h2>
-          <h3>{institution.attendance}</h3>
-          {
-            index === education.length - 1 && (
-              <div className={styles.siteLink} >
-                <Link to='/education' className={styles.siteLinkRef}>Education Home</Link>
-              </div>
-            )
-          }
-        </div>
-      </div>
-    );
-
-*/
