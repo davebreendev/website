@@ -1,10 +1,10 @@
-import { Link, useRouteLoaderData } from 'react-router';
+import { Link, useLoaderData } from 'react-router';
 import Influences from '../../components/influences/Influences';
 
 import styles from './InfluencesHome.module.css';
 
 export default function InfluencesHome() {
-  const { influences, resources } = useRouteLoaderData("app-layout");
+  const { influences, resources } = useLoaderData();
   return (
     <>
       <Influences
