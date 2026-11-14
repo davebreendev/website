@@ -4,19 +4,21 @@
   font-family: Kalam, cursive;
   border: 1px solid black;
   background: rgb(0, 0, 0, 0.7);
+  width: 95%;
 }
 
 .education {
   display: flex;
   justify-content: center;
   padding: 2rem;
-  width: 90%;
   font-family: Kalam, cursive;
 }
 
 .institution {
-  color: white;
+  display: flex;
+  flex-direction: column;
   flex: 1;
+  color: white;
   padding: 3rem;
   margin: 0 0.75rem;
   background: rgb(0, 0, 0, 0.7);
@@ -39,7 +41,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 2.5rem 0;
 }
 
 .siteLink {
@@ -59,7 +60,6 @@
 
   .institution {
     margin-bottom: 2rem;
-    padding: 1.25rem 1rem 0 1rem;
   }
 
   .institution .content {

@@ -1,58 +1,25 @@
 import { useEffect, useRef, useState } from 'react';
 
 import { getCentralImageUrl } from '../../utils/imageResolver';
-
+import { focusTrapModal } from '../../hooks/focusTrapModal';
 import styles from './GalleryModal.module.css';
 
 export function GalleryModal({ onClose, topic, galleryImages }) {
   const modalRef = useRef(null);
-  const previousElementRef = useRef(null);
-  const [focusIndex, setFocusIndex] = useState(0);
-  const mainImage = galleryImages[focusIndex];
+  const [mainIndex, setMainIndex] = useState(0);
+  const mainImage = galleryImages[mainIndex];
 
   const handleImageFocus = (image) => {
-    setFocusIndex(galleryImages.indexOf(image));
+    setMainIndex(galleryImages.indexOf(image));
   }
 
-  useEffect(() => {
-
-    previousElementRef.current = document.activeElement;
-
-    const handleKeyDown = (event) => {
-      if (event.key === 'Escape') {
-        onClose();
-        return;
-      }
-
-      if (event.key === 'Tab' && modalRef.current) {
-        const focusables = modalRef.current.querySelectorAll(
-          'h1'
-        );
-        if (focusables.length === 0) return;
-
-        const firstElement = focusables[0];
-        const lastElement = focusables[focusables.length - 1];
-
-        if (event.shiftKey && document.activeElement === firstElement) {
-          event.preventDefault();
-          lastElement.focus();
-        }
-        else if (!event.shiftKey && document.activeElement === lastElement) {
-          event.preventDefault();
-          firstElement.focus();
-        }
-      }
-    };
-
-    document.addEventListener('keydown', handleKeyDown);
-    modalRef.current?.focus();
-
-    return () => {
-      document.removeEventListener('keydown', handleKeyDown);
-      previousElementRef.current?.focus();
-    };
-
-  }, [onClose]);
+  const handleKeyPress = (event, image) => {
+    if (event.key === "Enter" && mainImage !== image) {
+      handleImageFocus(image);
+    }
+  }
+  
+  focusTrapModal(modalRef, onClose);
 
   return (
     <div
@@ -74,19 +41,20 @@ export function GalleryModal({ onClose, topic, galleryImages }) {
             <img
               className={styles.galleryMainImage}
               src={getCentralImageUrl(mainImage["name"])}
-              alt={mainImage["alt"]} />
+              alt={mainImage["alt"]}
+            />
             <h3 className={styles.mainImageCaption}>{mainImage["caption"]}</h3>
           </div>
 
           <div className={styles.galleryThumbnails}>
             {galleryImages.map((image) => {
               return (
-                <div className={`${styles.thumbnail} ${mainImage === image ? styles.activeThumbnail : ''}`} key={image.name}>
+                <button className={`${styles.thumbnail} ${mainImage === image ? styles.activeThumbnail : ''}`} key={image.name} onKeyDown={(event) => handleKeyPress(event, image)} id={image.name}>
                   <img
                     src={getCentralImageUrl(image.name)}
                     alt={image.alt}
                     onClick={() => handleImageFocus(image)} />
-                </div>
+                </button>
               );
             })}
           </div>

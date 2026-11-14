@@ -18,6 +18,7 @@ model education {
 model employers {
   id   Int    @id @default(autoincrement())
   name String
+  img String @default("employer.img")
 }
 
 model influences {
