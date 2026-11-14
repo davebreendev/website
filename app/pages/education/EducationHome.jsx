@@ -11,7 +11,7 @@ export default function EducationHome() {
         {education.map((institution) => {
           const description = institution.description.split('\\n');
           return (
-            <div className={styles.institution} key={institution.name}>
+            <div className={styles.institution} key={institution.name} id={institution.name}>
               <div className={styles.institutionPanel}>
                 <div className={styles.institutionDetails}>
                   <h2>{institution.name}</h2>

@@ -3,21 +3,18 @@ import { Link } from 'react-router';
 import styles from './Whoami.module.css';
 
 export default function Whoami({ whoami }) {
-  const intro = whoami.introduction.split('-----');
+  const intro = whoami.introduction.split('\\n');
   return (
-    <>
-      <span className="anchor" id="whoami">&nbsp;</span>
-      <div className={styles.whoami}>
-        <div className={styles.whoamiContent}>
-          <h2>{whoami.greeting}</h2>
-          {intro.map((paragraph, index) => {
-            return <p id={index} key={index}>{paragraph}</p>
-          })}
-          <div className={styles.siteLink} >
-            <Link to='/whoami' className={styles.siteLinkRef}>Whoami Home</Link>
-          </div>
+    <div className={styles.whoami}>
+      <div className={styles.whoamiContent}>
+        <h2>{whoami.greeting}</h2>
+        {intro.map((paragraph, index) => {
+          return <p id={index} key={index}>{paragraph}</p>
+        })}
+        <div className={styles.siteLink} >
+          <Link to='/whoami' className={styles.siteLinkRef}>Whoami Home</Link>
         </div>
       </div>
-    </>
+    </div>
   )
 }

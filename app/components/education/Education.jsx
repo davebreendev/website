@@ -12,25 +12,23 @@ export default function Education({ education }) {
       </div>
       <div className={styles.education}>
         {education.map((institution, index) => {
-          return (
-            <div className={styles.institution} key={index}>
-              <div className={styles.institutionImage}>
-                <img
-                  src={getCentralImageUrl(institution.img)} />
+          if (index < 4) {
+            return (
+              <div className={styles.institution} key={index}>
+                <div className={styles.institutionImage}>
+                  <img
+                    src={getCentralImageUrl(institution.img)} />
+                </div>
+                <div className={styles.institutionLabel}>
+                  <h2>{institution.name}</h2>
+                  <h3>{institution.attendance}</h3>
+                  <div className={styles.siteLink} >
+                    <Link to={`/education#${institution.name}`} className={styles.siteLinkRef}>Read More</Link>
+                  </div>
+                </div>
               </div>
-              <div className={styles.institutionLabel}>
-                <h2>{institution.name}</h2>
-                <h3>{institution.attendance}</h3>
-                {
-                  index === education.length - 1 && (
-                    <div className={styles.siteLink} >
-                      <Link to='/education' className={styles.siteLinkRef}>Education Home</Link>
-                    </div>
-                  )
-                }
-              </div>
-            </div>
-          );
+            );
+          }
         })}
       </div >
     </>

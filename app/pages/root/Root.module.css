@@ -2,13 +2,7 @@
   font-size: 2rem;
   top: 5rem;
   text-align: center;
-  width: 90%;
   border-radius: 1rem;
-}
-
-.siteLink {
-  margin-top: auto;
-  margin-bottom: 1rem;
 }
 
 .siteLinkRef {
@@ -23,6 +17,7 @@
 
 .returnHome {
   margin-top: 2rem;
+  margin-bottom: 1rem;
 }
 
 .returnHomeLink {

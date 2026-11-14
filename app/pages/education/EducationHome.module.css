@@ -86,6 +86,14 @@
   padding: 1rem;
 }
 
+.returnHome {
+  composes: returnHome from '../../pages/root/Root.module.css';
+}
+
+.returnHomeLink {
+  composes: returnHomeLink from '../../pages/root/Root.module.css';
+}
+
 @media (max-width: 768px) {
   .institution {
     flex-flow: column;
