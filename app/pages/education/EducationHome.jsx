@@ -11,13 +11,13 @@ export default function EducationHome() {
         {education.map((institution) => {
           const description = institution.description.split('\\n');
           return (
-            <div className={styles.institution} key={institution.name}>
+            <div className={styles.institution} key={institution.name} id={institution.name}>
               <div className={styles.institutionPanel}>
                 <div className={styles.institutionDetails}>
                   <h2>{institution.name}</h2>
                   <h3>{institution.attendance}</h3>
                 </div>
-                <div className={styles.institutionImage} style={{ backgroundImage: `url(${getCentralImageUrl(institution.img)})` }}>
+                <div className={styles.institutionImage} style={{ backgroundImage: `url(${getCentralImageUrl(institution.img)})` }} id={institution.name}>
                   <Link
                     to={`gallery/${institution.name}`}
                     className={styles.seeMoreButton}

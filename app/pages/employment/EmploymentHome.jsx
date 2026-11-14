@@ -1,21 +1,39 @@
-import { Link, useLoaderData } from 'react-router';
-import Employment from '../../components/employment/Employment';
+import { Link, Outlet, useLoaderData } from 'react-router';
+import { getCentralImageUrl } from '../../utils/imageResolver';
 
 import styles from './EmploymentHome.module.css';
 
 export default function EmploymentHome() {
   const { employers, jobs } = useLoaderData();
   return (
-    <>
-      <Employment
-        employers={employers}
-        jobs={jobs} />
-      <Link
-        to='/'
-        className={styles.returnHome}
-      >
-        Back to Home
-      </Link>
-    </>
+    <div className={styles.Employment}>
+      <div className={styles.employment}>
+        {employers.map((employer, index) => {
+        return (
+          <div className={styles.employer} key={index} id={employer.name}>
+            <h3 className={styles.employerLabel} style={{ backgroundImage: `url(${getCentralImageUrl(employer.img)})` }}>{employer.name}</h3>
+            {jobs.map((job, index) => {
+              if (job.employer_id === employer.id) {
+                return (
+                  <div className={styles.job} key={index}>
+                    <h4>{job.role} - {job.term}</h4>
+                    <p>{job.description}</p>
+                  </div>
+                )
+              }
+            })}
+            {
+              index === employers.length - 1 && (
+                <div className={styles.siteLink}>
+                  <Link to='/employment' className={styles.siteLinkRef}>Employment Home</Link>
+                </div>
+              )
+            }
+          </div>
+        )
+        })}
+      </div>
+      <Outlet />
+    </div>
   );
 }

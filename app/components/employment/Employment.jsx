@@ -1,4 +1,5 @@
 import { Link } from 'react-router';
+import { getCentralImageUrl } from '../../utils/imageResolver';
 import styles from './Employment.module.css';
 
 export default function Employment({ employers, jobs }) {
@@ -11,7 +12,7 @@ export default function Employment({ employers, jobs }) {
         {employers.map((employer, index) => {
           return (
             <div className={styles.employer} key={index}>
-              <h3>{employer.name}</h3>
+              <h3 style={{ backgroundImage: `url(${getCentralImageUrl(employer.img)})` }}>{employer.name}</h3>
               {jobs.map((job, index) => {
                 if (job.employer_id === employer.id) {
                   return (
@@ -21,14 +22,10 @@ export default function Employment({ employers, jobs }) {
                     </div>
                   )
                 }
-              })}
-              {
-                index === employers.length - 1 && (
-                  <div className={styles.siteLink}>
-                    <Link to='/employment' className={styles.siteLinkRef}>Employment Home</Link>
-                  </div>
-                )
-              }
+              })}              
+              <div className={styles.siteLink}>
+                <Link to={`/employment#${employer.name}`} className={styles.siteLinkRef}>Read More</Link>
+              </div>
             </div>
           )
         })}

@@ -21,11 +21,11 @@ export default function Gallery() {
 
   console.log(`source: /${source}`);
 
-  let navigate = useNavigate();
-  let { topic, galleryImages } = useLoaderData();
+  const navigate = useNavigate();
+  const { topic, galleryImages } = useLoaderData();
 
   function onClose() {
-    navigate(`/${source}`);
+    navigate(`/${source}#${topic}`);
   }
 
   return (

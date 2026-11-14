@@ -24,7 +24,12 @@
 }
 
 .closeModal {
-  color: white;
+  color: rgb(255, 255, 255);
+  background: rgba(0, 0, 0,);
+  padding: 0.5rem;
+  border: 2px solid rgb(255, 255, 255);
+  border-radius: 0.5rem;
+  font-size: 1rem;
 }
 
 .galleryViewer {
@@ -41,7 +46,7 @@
   width: auto;
   height: auto;
   max-width: 100%;
-  max-height: 100%;
+  max-height: 90%;
 }
 
 .mainImageCaption {
@@ -86,13 +91,6 @@
 }
 
 @media (max-width: 768px) {
-  .galleryModal {
-    width: 100%;
-    padding: 8px;
-    gap: 8px;
-    grid-template-rows: minmax(0, 1fr) 76px;
-  }
-
   .galleryThumbnails {
     gap: 8px;
   }
