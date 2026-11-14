@@ -17,7 +17,7 @@ export default function EducationHome() {
                   <h2>{institution.name}</h2>
                   <h3>{institution.attendance}</h3>
                 </div>
-                <div className={styles.institutionImage} style={{ backgroundImage: `url(${getCentralImageUrl(institution.img)})` }} id={institution.name}>
+                <div className={styles.institutionImage} style={{ backgroundImage: `url(${getCentralImageUrl(institution.img)})` }}>
                   <Link
                     to={`gallery/${institution.name}`}
                     className={styles.seeMoreButton}

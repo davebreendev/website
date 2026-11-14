@@ -70,15 +70,12 @@
   border: 2px solid black;
 }
 
-.employmentHomeLink a {
-  font-weight: bold;
-  text-decoration: none;
-  background-color: rgb(223, 220, 183);
-  border-radius: 0.25rem;
-  padding: 0.5rem;
-  width: 50%;
-  color: black;
-  font-size: 1rem;
+.returnHome {
+  composes: returnHome from '../../pages/root/Root.module.css';
+}
+
+.returnHomeLink {
+  composes: returnHomeLink from '../../pages/root/Root.module.css';
 }
 
 @media (max-width: 768px) {

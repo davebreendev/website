@@ -22,16 +22,17 @@ export default function EmploymentHome() {
                 )
               }
             })}
-            {
-              index === employers.length - 1 && (
-                <div className={styles.siteLink}>
-                  <Link to='/employment' className={styles.siteLinkRef}>Employment Home</Link>
-                </div>
-              )
-            }
           </div>
         )
         })}
+        <div className={styles.returnHome} >
+          <Link
+            to='/'
+            className={styles.returnHomeLink}
+          >
+            Back to Home
+          </Link>
+        </div>
       </div>
       <Outlet />
     </div>
