@@ -1,12 +1,14 @@
 import { useEffect, useRef, useState } from 'react';
 
 import { getCentralImageUrl } from '../../utils/imageResolver';
+import { scrollLockModal } from '../../hooks/scrollLockModal';
 import { focusTrapModal } from '../../hooks/focusTrapModal';
 import styles from './GalleryModal.module.css';
 
 export function GalleryModal({ onClose, topic, galleryImages }) {
   const modalRef = useRef(null);
   const [mainIndex, setMainIndex] = useState(0);
+  const [modalActive, setModalActive] = useState(true);
   const mainImage = galleryImages[mainIndex];
 
   const handleImageFocus = (image) => {
@@ -18,13 +20,19 @@ export function GalleryModal({ onClose, topic, galleryImages }) {
       handleImageFocus(image);
     }
   }
+
+  const handleClose = () => {
+    setModalActive(false);
+    onClose();
+  }
   
-  focusTrapModal(modalRef, onClose);
+  scrollLockModal(modalActive);
+  focusTrapModal(modalRef, handleClose);
 
   return (
     <div
       className={styles.modalBackground}
-      onClick={onClose}
+      onClick={handleClose}
     >
       <h2 className={styles.closeModal}>X Close</h2>
       <div

@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-export function focusTrapModal(modalRef, onClose) {
+export function focusTrapModal(modalRef, handleClose) {
 
   useEffect(() => {
 
@@ -16,7 +16,7 @@ export function focusTrapModal(modalRef, onClose) {
 
     const handleKeyDown = (event) => {
       if (event.key === 'Escape') {
-        onClose();
+        handleClose();
       }
       if (event.key === 'Tab') {
         if (event.shiftKey && document.activeElement === firstElement) {
@@ -35,5 +35,5 @@ export function focusTrapModal(modalRef, onClose) {
     return () => {
       element.removeEventListener('keydown', handleKeyDown);
     };
-  }, [modalRef, onClose]);
+  }, [modalRef, handleClose]);
 }

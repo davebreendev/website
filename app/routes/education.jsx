@@ -9,6 +9,10 @@ export async function loader() {
   return { education };
 }
 
+export function shouldRevalidate() {
+  return false;
+}
+
 export default function EducationRoute() {
   return (
     <EducationHome />

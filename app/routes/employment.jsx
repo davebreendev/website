@@ -11,6 +11,10 @@ export async function loader() {
   return { employers, jobs };
 }
 
+export function shouldRevalidate() {
+  return false;
+}
+
 export default function EmploymentRoute() {
   return (
     <EmploymentHome />

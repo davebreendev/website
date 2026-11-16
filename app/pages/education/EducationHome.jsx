@@ -20,6 +20,7 @@ export default function EducationHome() {
                 <div className={styles.institutionImage} style={{ backgroundImage: `url(${getCentralImageUrl(institution.img)})` }}>
                   <Link
                     to={`gallery/${institution.name}`}
+                    preventScrollReset
                     className={styles.seeMoreButton}
                   >
                     See More
