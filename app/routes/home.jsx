@@ -9,6 +9,10 @@ export async function loader() {
   return loaderData;
 }
 
+export function shouldRevalidate() {
+  return false;
+}
+
 export default function HomeRoute() {
 
   return (

@@ -25,7 +25,12 @@ export default function Gallery() {
   const { topic, galleryImages } = useLoaderData();
 
   function onClose() {
-    navigate(`/${source}#${topic}`);
+    if (location.key !== "default") {
+      navigate(-1);
+    }
+    else {
+      navigate(`/${source}`, {preventScrollReset: true});
+    }
   }
 
   return (
