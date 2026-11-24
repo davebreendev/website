@@ -1,9 +1,9 @@
 import { useEffect } from 'react';
 
-export function scrollLockModal(modalActive) {
+export function useScrollLockModal(modalActive) {
   useEffect(() => {
     if (!modalActive) return;
-    
+
     const originalOverflow = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
 

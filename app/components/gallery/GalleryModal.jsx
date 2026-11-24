@@ -1,8 +1,8 @@
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 
 import { getCentralImageUrl } from '../../utils/imageResolver';
-import { scrollLockModal } from '../../hooks/scrollLockModal';
-import { focusTrapModal } from '../../hooks/focusTrapModal';
+import { useScrollLockModal } from '../../hooks/useScrollLockModal';
+import { useFocusTrapModal } from '../../hooks/useFocusTrapModal';
 import styles from './GalleryModal.module.css';
 
 export function GalleryModal({ onClose, topic, galleryImages }) {
@@ -21,13 +21,13 @@ export function GalleryModal({ onClose, topic, galleryImages }) {
     }
   }
 
-  const handleClose = () => {
+  const handleClose = useCallback(() => {
     setModalActive(false);
     onClose();
-  }
-  
-  scrollLockModal(modalActive);
-  focusTrapModal(modalRef, handleClose);
+  }, [onClose]);
+
+  useScrollLockModal(modalActive);
+  useFocusTrapModal(modalRef, handleClose);
 
   return (
     <div
@@ -57,11 +57,17 @@ export function GalleryModal({ onClose, topic, galleryImages }) {
           <div className={styles.galleryThumbnails}>
             {galleryImages.map((image) => {
               return (
-                <button className={`${styles.thumbnail} ${mainImage === image ? styles.activeThumbnail : ''}`} key={image.name} onKeyDown={(event) => handleKeyPress(event, image)} id={image.name}>
+                <button
+                  className={`${styles.thumbnail} ${mainImage === image ? styles.activeThumbnail : ''}`}
+                  key={image.name}
+                  onKeyDown={(event) => handleKeyPress(event, image)}
+                  id={image.name}
+                  onClick={() => handleImageFocus(image)}
+                >
                   <img
                     src={getCentralImageUrl(image.name)}
                     alt={image.alt}
-                    onClick={() => handleImageFocus(image)} />
+                  />
                 </button>
               );
             })}
